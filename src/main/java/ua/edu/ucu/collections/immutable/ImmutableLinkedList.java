@@ -4,9 +4,9 @@ public class ImmutableLinkedList implements ImmutableList {
 
     static class Node {
 
-        Object data;
-        Node next;
-        Node previous;
+        public Object data;
+        public Node next;
+        public Node previous;
 
         Node(Object d) {
             data = d;
@@ -24,7 +24,8 @@ public class ImmutableLinkedList implements ImmutableList {
 
     public ImmutableLinkedList() {
         size = 0;
-        head = tail = null;
+        head = null;
+        tail = null;
     }
 
     public ImmutableLinkedList(Object[] arr) {
@@ -44,7 +45,9 @@ public class ImmutableLinkedList implements ImmutableList {
 
     public ImmutableLinkedList(Object e) {
         size = 1;
-        head = tail = new Node(e);
+        Node nd = new Node(e);
+        head = nd;
+        tail = nd;
     }
 
     @Override
@@ -243,11 +246,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public boolean isEmpty() {
-        if (size == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return (size == 0);
     }
 
     @Override
@@ -347,5 +346,4 @@ public class ImmutableLinkedList implements ImmutableList {
 
         return newList;
     }
-
 }
