@@ -23,10 +23,10 @@ public class ImmutableArrayList implements ImmutableList {
         }
         newElements_[size] = e;
 
-        final ImmutableArrayList newList_ = 
+        final ImmutableArrayList newList = 
             new ImmutableArrayList(newElements_);
 
-        return newList_;
+        return newList;
     }
 
     @Override
@@ -47,10 +47,10 @@ public class ImmutableArrayList implements ImmutableList {
             newElements_[i] = elements[i - 1];
         }
 
-        final ImmutableArrayList newList_ = 
+        final ImmutableArrayList newList = 
             new ImmutableArrayList(newElements_);
 
-        return newList_;
+        return newList;
     }
 
     @Override
@@ -66,10 +66,10 @@ public class ImmutableArrayList implements ImmutableList {
             }
         }
 
-        final ImmutableArrayList newList_ = 
+        final ImmutableArrayList newList = 
             new ImmutableArrayList(newElements_);
 
-        return newList_;
+        return newList;
     }
 
     @Override
@@ -91,10 +91,10 @@ public class ImmutableArrayList implements ImmutableList {
             }
         }
 
-        final ImmutableArrayList newList_ = 
+        final ImmutableArrayList newList = 
             new ImmutableArrayList(newElements_);
 
-        return newList_;
+        return newList;
     }
 
     @Override
@@ -124,10 +124,10 @@ public class ImmutableArrayList implements ImmutableList {
             }
         }
 
-        final ImmutableArrayList newList_ = 
+        final ImmutableArrayList newList = 
             new ImmutableArrayList(newElements_);
 
-        return newList_;
+        return newList;
     }
 
     @Override
@@ -140,10 +140,10 @@ public class ImmutableArrayList implements ImmutableList {
 
         newElements_[index] = e;
 
-        final ImmutableArrayList newList_ =
+        final ImmutableArrayList newList =
              new ImmutableArrayList(newElements_);
 
-        return newList_;
+        return newList;
     }
 
     @Override
@@ -165,10 +165,10 @@ public class ImmutableArrayList implements ImmutableList {
     public ImmutableArrayList clear() {
         Object[] newElements_ = new Object[0];
 
-        final ImmutableArrayList newList_ = 
+        final ImmutableArrayList newList = 
             new ImmutableArrayList(newElements_);
 
-        return newList_;
+        return newList;
     }
 
     @Override
