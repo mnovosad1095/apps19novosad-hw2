@@ -23,7 +23,8 @@ public class ImmutableArrayList implements ImmutableList {
         }
         new_elemnts[size] = e;
 
-        final ImmutableArrayList newList = new ImmutableArrayList(new_elemnts);
+        final ImmutableArrayList newList = 
+            new ImmutableArrayList(new_elemnts);
 
         return newList;
     }
@@ -46,7 +47,8 @@ public class ImmutableArrayList implements ImmutableList {
             new_elemnts[i] = elements[i - 1];
         }
 
-        final ImmutableArrayList newList = new ImmutableArrayList(new_elemnts);
+        final ImmutableArrayList newList = 
+            new ImmutableArrayList(new_elemnts);
 
         return newList;
     }
@@ -64,7 +66,8 @@ public class ImmutableArrayList implements ImmutableList {
             }
         }
 
-        final ImmutableArrayList newList = new ImmutableArrayList(newElements);
+        final ImmutableArrayList newList = 
+            new ImmutableArrayList(newElements);
 
         return newList;
     }
@@ -88,7 +91,8 @@ public class ImmutableArrayList implements ImmutableList {
             }
         }
 
-        final ImmutableArrayList newList = new ImmutableArrayList(newElements);
+        final ImmutableArrayList newList = 
+            new ImmutableArrayList(newElements);
 
         return newList;
     }
@@ -120,7 +124,8 @@ public class ImmutableArrayList implements ImmutableList {
             }
         }
 
-        final ImmutableArrayList newList = new ImmutableArrayList(newElements);
+        final ImmutableArrayList newList = 
+            new ImmutableArrayList(newElements);
 
         return newList;
     }
@@ -135,7 +140,8 @@ public class ImmutableArrayList implements ImmutableList {
 
         newElements[index] = e;
 
-        final ImmutableArrayList newList = new ImmutableArrayList(newElements);
+        final ImmutableArrayList newList =
+             new ImmutableArrayList(newElements);
 
         return newList;
     }
@@ -159,7 +165,8 @@ public class ImmutableArrayList implements ImmutableList {
     public ImmutableArrayList clear() {
         Object[] newElements = new Object[0];
 
-        final ImmutableArrayList newList = new ImmutableArrayList(newElements);
+        final ImmutableArrayList newList = 
+            new ImmutableArrayList(newElements);
 
         return newList;
     }

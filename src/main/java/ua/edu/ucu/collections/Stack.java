@@ -3,7 +3,7 @@ package ua.edu.ucu.collections;
 import ua.edu.ucu.collections.immutable.ImmutableLinkedList;
 
 public class Stack {
-    int size;
+    private int size;
     private ImmutableLinkedList elements;
 
     public Stack() {
@@ -29,5 +29,9 @@ public class Stack {
 
     public Object peek() {
         return elements.getFirst();
+    }
+
+    public int size() {
+        return size;
     }
 }
