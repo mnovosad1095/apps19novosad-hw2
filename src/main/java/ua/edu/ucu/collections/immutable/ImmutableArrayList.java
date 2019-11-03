@@ -16,17 +16,17 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableArrayList add(Object e) {
-        Object[] newElements_ = new Object[size + 1];
+        Object[] newElements = new Object[size + 1];
 
         for (int i = 0; i < size; i++) {
-            newElements_[i] = elements[i];
+            newElements[i] = elements[i];
         }
-        newElements_[size] = e;
+        newElements[size] = e;
 
-        final ImmutableArrayList NewList = 
-            new ImmutableArrayList(newElements_);
+        final ImmutableArrayList newList = 
+            new ImmutableArrayList(newElements);
 
-        return NewList;
+        return newList;
     }
 
     @Override
@@ -35,41 +35,41 @@ public class ImmutableArrayList implements ImmutableList {
             throw new IndexOutOfBoundsException();
         }
 
-        Object[] newElements_ = new Object[size++];
+        Object[] newElements = new Object[size++];
 
         for (int i = 0; i < index; i++) {
-            newElements_[i] = elements[i];
+            newElements[i] = elements[i];
         }
 
-        newElements_[index] = e;
+        newElements[index] = e;
 
         for (int i = index + 1; i < size + 1; i++) {
-            newElements_[i] = elements[i - 1];
+            newElements[i] = elements[i - 1];
         }
 
-        final ImmutableArrayList NewList = 
-            new ImmutableArrayList(newElements_);
+        final ImmutableArrayList newList = 
+            new ImmutableArrayList(newElements);
 
-        return NewList;
+        return newList;
     }
 
     @Override
     public ImmutableArrayList addAll(Object[] c) {
         int len = c.length;
-        Object[] newElements_ = new Object[size + len];
+        Object[] newElements = new Object[size + len];
 
         for (int i = 0; i < size + len; i++) {
             if (i < size) {
-                newElements_[i] = elements[i];
+                newElements[i] = elements[i];
             } else {
-                newElements_[i] = c[i - size];
+                newElements[i] = c[i - size];
             }
         }
 
-        final ImmutableArrayList NewList = 
-            new ImmutableArrayList(newElements_);
+        final ImmutableArrayList newList = 
+            new ImmutableArrayList(newElements);
 
-        return NewList;
+        return newList;
     }
 
     @Override
@@ -79,22 +79,22 @@ public class ImmutableArrayList implements ImmutableList {
         }
 
         int len = c.length;
-        Object[] newElements_ = new Object[size + len];
+        Object[] newElements = new Object[size + len];
 
         for (int i = 0; i < size + len; i++) {
             if (i < index) {
-                newElements_[i] = elements[i];
+                newElements[i] = elements[i];
             } else if (i >= index && i < index + len) {
-                newElements_[i] = c[i - index];
+                newElements[i] = c[i - index];
             } else {
-                newElements_[i] = elements[i - len];
+                newElements[i] = elements[i - len];
             }
         }
 
-        final ImmutableArrayList NewList = 
-            new ImmutableArrayList(newElements_);
+        final ImmutableArrayList newList = 
+            new ImmutableArrayList(newElements);
 
-        return NewList;
+        return newList;
     }
 
     @Override
@@ -112,22 +112,22 @@ public class ImmutableArrayList implements ImmutableList {
             throw new IndexOutOfBoundsException();
         }
 
-        Object[] newElements_ = new Object[size - 1];
+        Object[] newElements = new Object[size - 1];
 
         for (int i = 0; i < size; i++) {
             if (i < index) {
-                newElements_[i] = elements[i];
+                newElements[i] = elements[i];
             } else if (i == index) {
                 continue;
             } else {
-                newElements_[i - 1] = elements[i];
+                newElements[i - 1] = elements[i];
             }
         }
 
-        final ImmutableArrayList NewList = 
-            new ImmutableArrayList(newElements_);
+        final ImmutableArrayList newList = 
+            new ImmutableArrayList(newElements);
 
-        return NewList;
+        return newList;
     }
 
     @Override
@@ -136,14 +136,14 @@ public class ImmutableArrayList implements ImmutableList {
             throw new IndexOutOfBoundsException();
         }
 
-        Object[] newElements_ = elements.clone();
+        Object[] newElements = elements.clone();
 
-        newElements_[index] = e;
+        newElements[index] = e;
 
-        final ImmutableArrayList NewList =
-             new ImmutableArrayList(newElements_);
+        final ImmutableArrayList newList =
+             new ImmutableArrayList(newElements);
 
-        return NewList;
+        return newList;
     }
 
     @Override
@@ -163,12 +163,12 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableArrayList clear() {
-        Object[] newElements_ = new Object[0];
+        Object[] newElements = new Object[0];
 
-        final ImmutableArrayList NewList = 
-            new ImmutableArrayList(newElements_);
+        final ImmutableArrayList newList = 
+            new ImmutableArrayList(newElements);
 
-        return NewList;
+        return newList;
     }
 
     @Override
