@@ -16,15 +16,15 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableArrayList add(Object e) {
-        Object[] new_elemnts = new Object[size + 1];
+        Object[] newElements = new Object[size + 1];
 
         for (int i = 0; i < size; i++) {
-            new_elemnts[i] = elements[i];
+            newElements[i] = elements[i];
         }
-        new_elemnts[size] = e;
+        newElements[size] = e;
 
         final ImmutableArrayList newList = 
-            new ImmutableArrayList(new_elemnts);
+            new ImmutableArrayList(newElements);
 
         return newList;
     }
@@ -35,20 +35,20 @@ public class ImmutableArrayList implements ImmutableList {
             throw new IndexOutOfBoundsException();
         }
 
-        Object[] new_elemnts = new Object[size++];
+        Object[] newElements = new Object[size++];
 
         for (int i = 0; i < index; i++) {
-            new_elemnts[i] = elements[i];
+            newElements[i] = elements[i];
         }
 
-        new_elemnts[index] = e;
+        newElements[index] = e;
 
         for (int i = index + 1; i < size + 1; i++) {
-            new_elemnts[i] = elements[i - 1];
+            newElements[i] = elements[i - 1];
         }
 
         final ImmutableArrayList newList = 
-            new ImmutableArrayList(new_elemnts);
+            new ImmutableArrayList(newElements);
 
         return newList;
     }
