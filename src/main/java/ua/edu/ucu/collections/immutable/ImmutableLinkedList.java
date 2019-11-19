@@ -6,7 +6,6 @@ public class ImmutableLinkedList implements ImmutableList {
 
         public Object data;
         public Node next;
-        public Node previous;
 
         Node(Object d) {
             data = d;
@@ -24,20 +23,17 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public Node head;
-    public Node tail;
     private int size;
 
     public ImmutableLinkedList() {
         size = 0;
         head = null;
-        tail = null;
     }
 
     public ImmutableLinkedList(Object e) {
         size = 1;
         Node nd = new Node(e);
         head = nd;
-        tail = nd;
     }
 
     public ImmutableLinkedList(Object[] arr) {
@@ -49,10 +45,8 @@ public class ImmutableLinkedList implements ImmutableList {
         for (int i = 1; i < len; i++) {
             Node nd = new Node(arr[i]);
             previous.next = nd;
-            nd.previous = previous;
             previous = nd;
         }
-        tail = previous;
     }
 
     @Override
@@ -168,17 +162,13 @@ public class ImmutableLinkedList implements ImmutableList {
 
         Node currNode1 = head;
         Node currNode2 = newList.head;
-        Node last = null;
 
         while (currNode1 != null) {
             Node nd = new Node(currNode1.data);
             currNode2.next = nd;
-            currNode2.next.previous = currNode2;
-            last = nd;
             currNode2 = currNode2.next;
             currNode1 = currNode1.next;
         }
-        newList.tail = last;
         newList.size = size;
 
         return newList;
@@ -186,19 +176,8 @@ public class ImmutableLinkedList implements ImmutableList {
 
 
     public ImmutableLinkedList addFirst(Object e) {
-        final ImmutableLinkedList newList = copy();
-        Node nd = new Node(e);
-
-        if (newList.size == 0) {
-            newList.head = nd;
-            newList.tail = nd;
-        } else {
-            nd.next = newList.head;
-            newList.head = nd;
-        }
-
-        newList.size = size + 1;
-        return newList;
+        
+        return add(0,e);
     }
 
     public ImmutableLinkedList addLast(Object e) {
@@ -214,29 +193,17 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public Object getLast() {
-        if (tail != null) {
-            return tail.data;
-        }
-
-        return null;
+        Object e = get(size-1);
+        return e;
     }
 
     public ImmutableLinkedList removeFirst() {
-        final ImmutableLinkedList newList = copy();
-
-        newList.head = newList.head.next;
-        newList.head.previous = null;
-
-        return newList;
+        
+        return remove(0);
     }
 
     public ImmutableLinkedList removeLast() {
-        final ImmutableLinkedList newList = copy();
-
-        newList.tail = newList.tail.previous;
-        newList.tail.next = null;
-
-        return newList;
+        return remove(size-1);
     }
 
     private ImmutableLinkedList copy(int caseType, int index, Object[] elements, Object e) {
