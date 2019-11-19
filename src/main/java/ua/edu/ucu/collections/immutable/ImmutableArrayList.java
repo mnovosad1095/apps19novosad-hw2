@@ -1,16 +1,18 @@
 package ua.edu.ucu.collections.immutable;
 
+import java.util.Arrays;
+
 public class ImmutableArrayList implements ImmutableList {
     private int size = 0;
     private Object[] elements;
 
     public ImmutableArrayList(Object[] arr) {
-        elements = arr;
         size = arr.length;
+        elements = Arrays.copyOf(arr, size);
     }
 
     public ImmutableArrayList() {
-        elements = new Object[0];
+        elements = new Object[1];
         size = 0;
     }
 
@@ -35,7 +37,7 @@ public class ImmutableArrayList implements ImmutableList {
             throw new IndexOutOfBoundsException();
         }
 
-        Object[] newElements = new Object[size++];
+        Object[] newElements = new Object[size+1];
 
         for (int i = 0; i < index; i++) {
             newElements[i] = elements[i];
@@ -149,7 +151,7 @@ public class ImmutableArrayList implements ImmutableList {
     @Override
     public int indexOf(Object e) {
         for (int i = 0; i < size; i++) {
-            if (elements[i] == e) {
+            if (elements[i].equals(e)) {
                 return i;
             }
         }
@@ -185,4 +187,5 @@ public class ImmutableArrayList implements ImmutableList {
     public String toString() {
         return new String();
     }
+    
 }

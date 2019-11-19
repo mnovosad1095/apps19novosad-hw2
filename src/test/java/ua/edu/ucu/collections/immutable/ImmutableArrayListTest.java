@@ -40,8 +40,8 @@ public class ImmutableArrayListTest {
     public void testSet() {
         Object[] l = { 1, 2, 3 };
         ImmutableArrayList list = new ImmutableArrayList(l);
-        list = list.set(0, 4);
-        Object[] expected = { 4, 2, 3 };
+        list = list.add(0, 4);
+        Object[] expected = { 4, 1, 2, 3 };
 
         assertArrayEquals(expected, list.toArray());
     }
